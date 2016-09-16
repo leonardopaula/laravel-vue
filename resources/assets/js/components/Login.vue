@@ -46,7 +46,10 @@
         },
         methods: {
             login(){
-                console.log("login");
+                this.$http.post('http://localhost:8000/api/token',this.user)
+                    .then((response) => {
+                        window.localStorage.setItem('token', response.data.token);
+                    });
             }
         }
     }

@@ -16,6 +16,7 @@ require('./bootstrap');
 //Vue.component('example', require('./components/Example.vue'));
 const ExampleComponent = require('./components/Example.vue');
 const LoginComponent = require('./components/Login.vue');
+const AppComponent = requre('./componenets/App.vue');
 const router = new VueRouter();
 router.map({
     '/opa-primeira-rota' : {
@@ -25,6 +26,14 @@ router.map({
     '/login' : {
         name: 'auth.login',
         component: LoginComponent
+    },
+    '/app' : {
+        component: AppComponent,
+        subRoutes: {
+            '/bill-pays': {
+                
+            }
+        }
     }
 });
 router.start({}, 'body');
